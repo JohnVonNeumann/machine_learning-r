@@ -16,6 +16,6 @@ dataset$Salary = ifelse(is.na(dataset$Salary), #same process as last block, just
                         dataset$Salary)
 
 # Encoding cat data.
-dataset$Country = factor(dataset$Country,
-                         levels = c('France', 'Spain', 'Germany'),
-                         labels = c(1, 2, 3))
+dataset$Country = factor(dataset$Country,     # factor allows us to simply swap cat for num
+                         levels = c('France', 'Spain', 'Germany'), # c creates a vector, it is built into r, here we create a vector with our feature names
+                         labels = c(1, 2, 3)) # and we align the c cat vector with the num data we wish 
