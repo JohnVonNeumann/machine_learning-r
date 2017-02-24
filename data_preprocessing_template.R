@@ -14,3 +14,8 @@ dataset$Age = ifelse(is.na(dataset$Age), # using dataset var, we target the Age 
 dataset$Salary = ifelse(is.na(dataset$Salary), #same process as last block, just pertaining to Salary changes
                         ave(dataset$Salary, FUN = function(x) mean(x, na.rm = TRUE)),
                         dataset$Salary)
+
+# Encoding cat data.
+dataset$Country = factor(dataset$Country,
+                         levels = c('France', 'Spain', 'Germany'),
+                         labels = c(1, 2, 3))
