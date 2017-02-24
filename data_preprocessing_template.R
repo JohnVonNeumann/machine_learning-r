@@ -3,3 +3,8 @@
 
 # Import the datasets
 dataset = read.csv('Data.csv')
+
+# Taking care of missing data
+dataset$Age = ifelse(is.na(dataset$Age), # using dataset var, we target the Age column and cells that are N/A
+                     ave(dataset$Age, FUN = function(x) mean(x, na.rm = TRUE)), # we wish to average all N/A cells with a inbuilt mean function
+                     dataset$Age) # we apply the changes to the Age column 
