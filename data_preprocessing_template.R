@@ -32,9 +32,10 @@ dataset$Purchased = factor(dataset$Purchased, # same as previous block
 library(caTools)
 set.seed(123)
 split = sample.split( dataset$Purchased, SplitRatio = 0.8)
-training_set = subset(dataset, split == TRUE)
-test_set = subset(dataset, split == TRUE)
+training_set = subset(dataset, split == TRUE) # split = true pertains to the 0.8 figure we param'd above
+test_set = subset(dataset, split == FALSE) # split = false indicates we wish to allocate the remaining 20% of data to test
 
 #Feature Scaling
-training_set = scale(training_set, center = TRUE)
-test_set = scale(test_set, center = TRUE)
+training_set[, 2:3] = scale(training_set[, 2:3]) # in a prev iteration, we recieved an error for lack of num data, 
+test_set[, 2:3] = scale(test_set[, 2:3])         #so we scale the training + test purchased data (indep var we wish to know more about)
+                                                 #against colums 2-3, our salary and age values that need to be brought in line in order to produce results with
