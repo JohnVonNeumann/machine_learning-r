@@ -26,3 +26,10 @@ dataset$Country = factor(dataset$Country,     # factor allows us to simply swap 
 dataset$Purchased = factor(dataset$Purchased, # same as previous block
                            levels = c('No', 'Yes'),
                            labels = c(0, 1))
+
+#Splitting dataset for use in testing and training
+# Installed caTools package
+library(caTools)
+set.seed(123)
+split = sample.split( X, SplitRatio = 3/4, group = NULL)
+split = sample.split( Y, SplitRatio = 3/4, group = NULL)
