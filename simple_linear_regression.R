@@ -15,3 +15,6 @@ test_set = subset(dataset, split == FALSE) # split = false indicates we wish to 
 #Fitting Simple Linear Regression to the Training Set, call summary(regressor) for num info
 regressor = lm(formula = Salary ~ YearsExperience, #lm is linearmodels method
                data = training_set) #trained on training_set
+
+# Predicting the test set results
+test_set_results = regressor.predict(test_set) # didnt work
