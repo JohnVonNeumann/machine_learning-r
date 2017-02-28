@@ -12,9 +12,6 @@ test_set = subset(dataset, split == FALSE) # split = false indicates we wish to 
 
 #The library we are using takes care of scaling for us
 
-#Fitting Simple Linear Regression to the Training Set
-regressor(Salary ~ YearsExperience, data = training_set,
-          xlab = "Years Experience",
-          ylab = "Salary",
-          main = "Years Experience vs Salary (Training Set)"
-          )
+#Fitting Simple Linear Regression to the Training Set, call summary(regressor) for num info
+regressor = lm(formula = Salary ~ YearsExperience, #lm is linearmodels method
+               data = training_set) #trained on training_set
