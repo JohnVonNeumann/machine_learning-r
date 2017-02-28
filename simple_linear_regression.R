@@ -17,4 +17,5 @@ regressor = lm(formula = Salary ~ YearsExperience, #lm is linearmodels method
                data = training_set) #trained on training_set
 
 # Predicting the test set results
-test_set_results = predict.lm(regressor, newdata = test_set)
+# my try = test_set_results = predict.lm(regressor, newdata = test_set)
+y_pred = predict(regressor, newdata = test_set)
